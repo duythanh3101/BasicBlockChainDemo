@@ -34,7 +34,7 @@ namespace BasicBlockChain.Pages
             var transactions = BlockChainService.Instance.PendingTransactions;
             if (transactions.Count > 0)
             {
-                var address = GlobalVariables.MyAdrress;
+                var address = GlobalVariables.Key.PublicKey;
                 var res = BlockChainService.Instance.ProcessPendingTransactions(address);
 
                 gridMain.Children.Clear();

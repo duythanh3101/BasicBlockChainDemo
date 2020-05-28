@@ -27,11 +27,11 @@
       
         <StackPanel Grid.Row="0">
             <StackPanel Orientation="Horizontal">
-                <Button Content="BlockChain" Click="BlockChainButton_Clicked"/>
-                <Button Content="Create Transaction" Click="CreateTransactionButton_Clicked"/>
-                <Button Content="Pending Transactions" Click="PendingTransactionsButton_Clicked"/>
-                <Button Content="Wallets" Click="WalletsButton_Clicked"/>
-                <Button Content="Settings" Click="SettingsButton_Clicked"/>
+                <Button x:Name="WalletsScreen" Content="Wallets" Click="WalletsButton_Clicked"/>
+                <Button x:Name="BlockChainScreen" Content="BlockChain" Click="BlockChainButton_Clicked"/>
+                <Button x:Name="CreateTransactionScreen" Content="Create Transaction" Click="CreateTransactionButton_Clicked"/>
+                <Button x:Name="PendingTransactionsScreen" Content="Pending Transactions" Click="PendingTransactionsButton_Clicked"/>
+                <Button x:Name="SettingsScreen" Content="Settings" Click="SettingsButton_Clicked"/>
             </StackPanel>
             <Border BorderBrush="Black" BorderThickness="0 0 0 1"/>
             <Frame Name="MainFrame"/>

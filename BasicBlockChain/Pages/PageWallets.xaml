@@ -5,10 +5,79 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BasicBlockChain.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="700" d:DesignWidth="800"
       Title="PageWallets">
 
     <Grid>
-        <TextBlock Text="Wallets"/>
+        <StackPanel Margin="20 30 0 0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Content="Wallets" FontSize="30" FontWeight="Bold"/>
+
+                <Grid Grid.Row="1" Margin="0 20 0 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="Start Generator" Grid.Row="0"
+                    Click="Button_Click" x:Name="GeneratorButton"
+                    Background="#007BFF" Width="200" Height="40" Margin="20 10 0 0"/>
+
+                        <Button Content="Login with Private Key" Grid.Row="0"
+                    Click="Login_Click" x:Name="LoginButton"
+                    Background="#007BFF" Width="200" Height="40" Margin="40 10 0 0"/>
+
+                        <Label x:Name="ErrorText" Content="Private key is invalid" Visibility="Collapsed"
+                                Margin="5 10 0 0"
+                                FontSize="12" Foreground="Red"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="0 10 0 0" Grid.Row="1">
+                        <TextBlock Text="Public Key" Margin="10 10 0 0" FontSize="18"></TextBlock>
+                        <TextBox Name="PublicKeyTextBox" Margin="10 10 10 0" IsReadOnly="True"
+                         Height="40" FontSize="16" Padding="5"/>
+                        <Label Content="The public key is a unique personal address that is shared in the blockchain."
+                                Margin="5 10 0 0"
+                                FontSize="12" Foreground="Gray"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="0 10 0 0" Grid.Row="2">
+                        <TextBlock Text="Private Key" Margin="10 10 0 0" FontSize="18"></TextBlock>
+                        <TextBox Name="PrivateKeyTextBox" Margin="10 10 10 0"
+                         Height="40" FontSize="16" Padding="5"/>
+                        <Label Content="The private key is what grants a cryptocurrency user ownership of the funds on a given address."
+                                Margin="5 10 0 0"
+                                FontSize="12" Foreground="Gray"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+            <Grid x:Name="BalanceContainer">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Content="Balance" FontSize="30" FontWeight="Bold"/>
+
+                <Grid Grid.Row="1" Margin="0 10 0 0">
+                    <StackPanel Margin="0 10 0 0" Grid.Row="1">
+                        <TextBox Name="BalanceTextBox" Margin="10 10 10 0" IsReadOnly="True" Background="LightBlue"
+                         Height="40" FontSize="16" Padding="5"/>
+                        <Label Content="E-wallets allow individuals to store cryptocurrencies"
+                                Margin="5 10 0 0"
+                                FontSize="12" Foreground="Gray"/>
+                    </StackPanel>
+
+                </Grid>
+            </Grid>
+
+
+        </StackPanel>
+
     </Grid>
 </Page>

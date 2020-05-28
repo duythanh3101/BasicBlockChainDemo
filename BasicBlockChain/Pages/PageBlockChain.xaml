@@ -28,7 +28,7 @@
             </StackPanel>
             <Label Content="This block has no transactions" x:Name="NotifyLabel"
                    Margin="5 10 0 0"
-                   FontSize="12" Foreground="Gray"/>
+                   FontSize="18" Foreground="Gray"/>
             <Grid x:Name="TransactionsContainer"/>
         </StackPanel>
 

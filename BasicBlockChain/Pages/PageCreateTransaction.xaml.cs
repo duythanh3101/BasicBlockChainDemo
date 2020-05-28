@@ -27,7 +27,7 @@ namespace BasicBlockChain.Pages
         {
             InitializeComponent();
 
-            FromAddressTextBox.Text = GlobalVariables.MyAdrress;
+            FromAddressTextBox.Text = GlobalVariables.Key.PublicKey;
             notifyLabel.Visibility = Visibility.Hidden;
         }
 

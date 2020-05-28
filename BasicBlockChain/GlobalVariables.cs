@@ -13,6 +13,6 @@ namespace BasicBlockChain
 
         public static MyKey Key = new MyKey();
 
-        public static Block SelectedBlock;
+        public static bool isLogined = false;
     }
 }
