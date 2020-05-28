@@ -8,7 +8,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="950">
     <Grid>
-        <ListView Margin="10" Name="lvTransactions" Width="950" MaxHeight="400">
+        <ListView Margin="10" Name="lvTransactions"
+                  ItemsSource="{Binding TransactionsList}"
+                  Width="950" MaxHeight="400">
             <ListView.Resources>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -41,10 +43,11 @@
                 <DataTemplate x:Key="TimeStampColumnDataTemplate">
                     <StackPanel>
                         <TextBlock Text="{Binding TimeStamp.Ticks}"/>
-                        <TextBlock Text="{Binding TimeStamp, StringFormat='{}{0:MMMM dd,yyyy hh,mm}'}" Foreground="Gray"/>
+                        <TextBlock Text="{Binding TimeStamp, StringFormat='{}{0:MMMM dd,yyyy hh:mm}'}" Foreground="Gray"/>
                     </StackPanel>
 
                 </DataTemplate>
+               
             </ListView.Resources>
 
             <ListView.View>

@@ -97,6 +97,9 @@
     <Compile Include="UserControls\UCBlock.xaml.cs">
       <DependentUpon>UCBlock.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UCPendingTransactionsList.xaml.cs">
+      <DependentUpon>UCPendingTransactionsList.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -135,6 +138,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\UCBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UCPendingTransactionsList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

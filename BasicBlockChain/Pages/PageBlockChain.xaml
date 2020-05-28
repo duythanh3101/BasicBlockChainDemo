@@ -9,16 +9,28 @@
       Title="PageBlockChain">
     <Grid Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Label Content="Blocks On Chain" FontSize="30" FontWeight="Bold"/>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" Grid.Row="1">
-            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center"
+        <StackPanel>
+            <Label Content="Blocks On Chain" FontSize="30" FontWeight="Bold"/>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" Grid.Row="1">
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center"
             Orientation="Horizontal" Grid.Row="1" x:Name="blockContainer">
 
+                </StackPanel>
+            </ScrollViewer>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Transactions inside block" FontSize="30" FontWeight="Bold"/>
+                <Label x:Name="numberLabel" Content="0" FontSize="30" FontWeight="Bold"/>
             </StackPanel>
-        </ScrollViewer>
+            <Label Content="This block has no transactions" x:Name="NotifyLabel"
+                   Margin="5 10 0 0"
+                   FontSize="12" Foreground="Gray"/>
+            <Grid x:Name="TransactionsContainer"/>
+        </StackPanel>
 
     </Grid>
 </Page>

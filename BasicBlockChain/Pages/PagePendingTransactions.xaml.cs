@@ -1,4 +1,5 @@
 ﻿using BasicBlockChain.Services;
+using BasicBlockChain.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,11 +22,11 @@ namespace BasicBlockChain.Pages
     /// </summary>
     public partial class PagePendingTransactions : Page
     {
+
         public PagePendingTransactions()
         {
             InitializeComponent();
-
-            lvTransactions.ItemsSource = BlockChainService.Instance.PendingTransactions;
+            gridMain.Children.Add(new UCPendingTransactionsList(BlockChainService.Instance.PendingTransactions.ToList()));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -36,8 +37,8 @@ namespace BasicBlockChain.Pages
                 var address = GlobalVariables.MyAdrress;
                 var res = BlockChainService.Instance.ProcessPendingTransactions(address);
 
-                lvTransactions.ItemsSource = res;
-                lvTransactions.Items.Refresh();
+                gridMain.Children.Clear();
+                gridMain.Children.Add(new UCPendingTransactionsList(res));
             }
         }
 

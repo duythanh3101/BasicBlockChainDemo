@@ -1,6 +1,8 @@
 ﻿using BasicBlockChain.Entities;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,18 +21,36 @@ namespace BasicBlockChain.UserControls
     /// <summary>
     /// Interaction logic for UCPendingTransactionsList.xaml
     /// </summary>
-    public partial class UCPendingTransactionsList : UserControl
+    public partial class UCPendingTransactionsList : UserControl, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         public UCPendingTransactionsList()
         {
             InitializeComponent();
         }
 
+        private ObservableCollection<Transaction> transactionsList;
+        public ObservableCollection<Transaction> TransactionsList
+        {
+            get { return transactionsList; }
+            set { transactionsList = value; OnPropertyChanged("TransactionsList"); }
+        }
+
         public UCPendingTransactionsList(List<Transaction> transactions)
         {
             InitializeComponent();
+            DataContext = this;
 
-            lvTransactions.ItemsSource = transactions;
+            lvTransactions.ItemsSource = new ObservableCollection<Transaction>(transactions); ;
+            lvTransactions.Items.Refresh();
+
         }
+
+     
     }
 }

@@ -1,20 +1,9 @@
 ﻿using BasicBlockChain.Entities;
 using BasicBlockChain.Services;
 using BasicBlockChain.UserControls;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BasicBlockChain
 {
@@ -23,6 +12,8 @@ namespace BasicBlockChain
     /// </summary>
     public partial class PageBlockChain : Page
     {
+
+     
         public PageBlockChain()
         {
             InitializeComponent();
@@ -76,8 +67,27 @@ namespace BasicBlockChain
             for (int i = 0; i < BlockChainService.Instance.Chain.Count; i++)
             {
                 var block = BlockChainService.Instance.Chain[i];
-                blockContainer.Children.Add(new UCBlock(i + 1, block.PreviousHash, block.Hash, 0, block.TimeStamp));
+                blockContainer.Children.Add(new UCBlock(block, Show));
             }
+            
+        }
+
+        public void Show(List<Transaction> transactions, int blockIndex)
+        {
+            if (transactions != null && transactions.Count > 0)
+            {
+                TransactionsContainer.Children.Clear();
+                TransactionsContainer.Children.Add(new UCPendingTransactionsList(transactions));
+                NotifyLabel.Visibility = System.Windows.Visibility.Collapsed;
+            }
+            else
+            {
+                TransactionsContainer.Children.Clear();
+                NotifyLabel.Visibility = System.Windows.Visibility.Visible;
+            }
+            numberLabel.Content = blockIndex.ToString();
         }
     }
+
+    
 }

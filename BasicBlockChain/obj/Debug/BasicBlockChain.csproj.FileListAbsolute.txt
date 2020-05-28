@@ -136,3 +136,5 @@ E:\Sources\BasicBlockChain\BasicBlockChain\obj\Debug\Pages\PageWallets.baml
 E:\Sources\BasicBlockChain\BasicBlockChain\obj\Debug\Pages\PagePendingTransactions.g.cs
 E:\Sources\BasicBlockChain\BasicBlockChain\obj\Debug\Pages\PagePendingTransactions.baml
 E:\Sources\BasicBlockChain\BasicBlockChain\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\Sources\BasicBlockChain\BasicBlockChain\obj\Debug\UserControls\UCPendingTransactionsList.g.cs
+E:\Sources\BasicBlockChain\BasicBlockChain\obj\Debug\UserControls\UCPendingTransactionsList.baml

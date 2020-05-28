@@ -29,6 +29,10 @@ namespace BasicBlockChain.Entities
             Nonce = 0;
         }
 
+        public Block()
+        {
+        }
+
         public string CalculateHash()
         {
             SHA256 sha256 = SHA256.Create();

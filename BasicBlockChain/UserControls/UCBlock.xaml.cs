@@ -1,17 +1,10 @@
-﻿using System;
+﻿using BasicBlockChain.Entities;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Block = BasicBlockChain.Entities.Block;
 
 namespace BasicBlockChain.UserControls
 {
@@ -29,15 +22,21 @@ namespace BasicBlockChain.UserControls
         private string currentHash;
         private long nonce;
         private DateTime timeStamp;
+        private List<Transaction> transactions;
+        private Block currentBlock;
+        private Action<List<Transaction>, int> showTransactionTable;
 
-        public UCBlock(int index, string previouseHash, string currentHash, long nonce, DateTime timeStamp)
+        public UCBlock(Block block, Action<List<Transaction>, int> showTransactionTable = null)
         {
             InitializeComponent();
-            this.index = index;
-            this.previouseHash = previouseHash;
-            this.currentHash = currentHash;
-            this.nonce = nonce;
-            this.timeStamp = timeStamp;
+            this.index = block.Index;
+            this.previouseHash = block.PreviousHash;
+            this.currentHash = block.Hash;
+            this.nonce = block.Nonce;
+            this.timeStamp = block.TimeStamp;
+            this.transactions = (List<Transaction>)block.Transactions;
+            this.currentBlock = block;
+            this.showTransactionTable = showTransactionTable;
 
             HashText.Text = currentHash;
             PreviousHashText.Text = previouseHash;
@@ -52,6 +51,14 @@ namespace BasicBlockChain.UserControls
             else
             {
                 GenesisText.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (showTransactionTable != null)
+            {
+                showTransactionTable.Invoke(transactions, index);
             }
         }
     }
