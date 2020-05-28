@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="BasicBlockChain.UserControls.UCBlock"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BasicBlockChain.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="350">
+    <UserControl.Resources>
+        <Style TargetType="Border">
+            <Setter Property="BorderBrush" Value="LightGray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Width" Value="370"/>
+        </Style>
+        <!--<Style TargetType="Button">
+            </>
+        </Style>-->
+
+    </UserControl.Resources>
+    <Button Margin="0 0 10 0" Background="Transparent">
+        <StackPanel>
+            <Border>
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="BlockName" Content="Block" Padding="10" 
+                               FontSize="18"  FontWeight="Bold"/>
+                    <Label x:Name="GenesisText" Content="(Genesis Block)" Padding="0 10 10 10"
+                               FontSize="18" Foreground="Gray"/>
+                </StackPanel>
+
+            </Border>
+            <Border BorderThickness="1 0 1 1">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel>
+                        <Label Content="Hash" Padding="10 10 10 5" 
+                               FontSize="16"/>
+                        <TextBlock Name="HashText" Margin="10 0 0 0"
+                               FontSize="14" Foreground="Red"
+                                   Text="0xf51645f07f5014C42f1B45e5E7f3a423a3AAE421"
+                                   />
+                    </StackPanel>
+                    <StackPanel Margin="0 10 0 0">
+                        <Label Content="Hash of previous block" Padding="10 10 10 5" 
+                               FontSize="16"/>
+                        <TextBlock Name="PreviousHashText" Margin="10 0 0 0"
+                               FontSize="14" Foreground="Black"
+                                   Text="0xf51645f07f5014C42f1B45e5E7f3a423a3AAE421"
+                                   />
+                    </StackPanel>
+                </StackPanel>
+
+            </Border>
+            <Border BorderThickness="1 0 1 1">
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Nonce" Padding="10 10 10 5" 
+                               FontSize="16"/>
+                    <TextBlock x:Name="NonceText" Text="0" Margin="10 0 0 0"
+                               FontSize="14" Foreground="Gray"/>
+                </StackPanel>
+            </Border>
+            <Border BorderThickness="1 0 1 1">
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Timestamp" Padding="10 10 10 5" 
+                               FontSize="16"/>
+                    <TextBlock x:Name="TimeStampText" Text="123456" Margin="10 0 0 0"
+                               FontSize="14" Foreground="Gray"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+    </Button>
+</UserControl>

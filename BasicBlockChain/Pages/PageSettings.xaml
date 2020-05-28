@@ -1,0 +1,27 @@
+﻿<Page x:Class="BasicBlockChain.Pages.PageSettings"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BasicBlockChain.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageSettings">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="20 30 0 0">
+            <Label Content="Settings" FontSize="30" FontWeight="Bold"/>
+            <Label Content="Control how the block chain behaves when new transactions or blocks are created." FontSize="14"/>
+            <Label Content="Changes are automatically saved" FontSize="14"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Margin="20 30 0 0">
+            <TextBlock Text="Difficulty"></TextBlock>
+            
+        </StackPanel>
+    </Grid>
+</Page>
