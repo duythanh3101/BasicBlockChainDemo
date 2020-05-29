@@ -1,0 +1,22 @@
+Public Key:
+0x4F0D02d976351fbcb15F696e6da6fdBe8b98d714
+
+
+Private Key:
+496882ad924c2055ecbe2374849f119a7940bf36878d09bf011e7130b181da29
+
+1/ Tab Wallets: Hệ thống sẽ cung cấp cho người dùng public key và private key.
+2/ Tab Wallets :Có thể đăng nhập bằng private key được lưu trước đó.
+3/ Tab BlockChain: Có một Genesis Block (không có transaction data nào của block này).
+4/ Tab Create Transactions: Tạo một transaction chuyển cryptocurrency đến một địa chỉ khác:
+	+ Điền thông tin Address của người nhận.
+	+ Kiểm tra Digital Signature của người chuyển.
+	+ Nếu hợp lệ, tạo transaction thành công.
+5/ Tab Pending Transactions: Kiểm tra các pending transations đang diễn ra.
+6/ Tab Pending Transactions: Bắt đầu mine các transaction, tạo Block thứ 2 và thêm vào Chain.
+7/ Tab BlockChain: Kiểm tra Block đã được tạo ở Tab Block Chain
+8/ Tab Wallets: Kiểm tra Reward trong Wallets sau khi Mining thành công.
+9/ Tab Settings: Thay đổi Difficulty = 3 và Mining Reward = 300  
+10/ Tạo thêm 2 transactions và bắt đầu mining, tạo Block thứ 3.
+11/ Tab BlockChain: Kiểm difficulty = 3 và Wallets có thay đổi.
+12/ Hoàn thành.
