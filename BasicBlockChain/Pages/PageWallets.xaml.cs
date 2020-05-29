@@ -51,6 +51,8 @@ namespace BasicBlockChain.Pages
             InitializeComponent();
 
             this.onActivateAllScreen = onActivateAllScreen;
+            PrivateKeyTextBox.IsReadOnly = false;
+
             if (!GlobalVariables.isLogined)
             {
                 GeneratorButton.Visibility = Visibility.Visible;
@@ -90,6 +92,7 @@ namespace BasicBlockChain.Pages
                 GlobalVariables.isLogined = true;
                 GlobalVariables.Key = myKey;
 
+                PrivateKeyTextBox.IsReadOnly = true;
                 onActivateAllScreen?.Invoke();
                 ErrorText.Visibility = Visibility.Collapsed;
             }
@@ -124,6 +127,7 @@ namespace BasicBlockChain.Pages
 
                     PublicKeyTextBox.Text = myKey.PublicKey;
                     ErrorText.Content = "Login Success !!!";
+                    PrivateKeyTextBox.IsReadOnly = true;
                     ErrorText.Visibility = Visibility.Visible;
                 }
                 else

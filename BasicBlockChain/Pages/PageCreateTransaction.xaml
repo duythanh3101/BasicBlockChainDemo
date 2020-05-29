@@ -50,9 +50,18 @@
             <Label x:Name="notifyLabel"
                    Margin="10 0 0 0" HorizontalAlignment="Center"
                    FontSize="18" Foreground="Red"/>
-            <Button Content="Sign and Create transaction" 
-                    Click="Button_Click"
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Check Digital Signature" x:Name="SignatureButton"
+                    Click="CheckDigitalSignature_Click"
                     Background="#007BFF" Width="200" Height="40" Margin="0 5 0 0"/>
+                <Button Content="Create transaction" x:Name="CreateButton"
+                    Click="Button_Click"
+                    Background="Red" Width="200" Height="40" Margin="30 5 0 0"/>
+            </StackPanel>
+            <!--<Button Content="Sign and Create transaction" 
+                    Click="Button_Click"
+                    Background="#007BFF" Width="200" Height="40" Margin="0 5 0 0"/>-->
 
 
         </StackPanel>

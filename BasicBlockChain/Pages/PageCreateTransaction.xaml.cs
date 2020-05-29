@@ -29,6 +29,8 @@ namespace BasicBlockChain.Pages
 
             FromAddressTextBox.Text = GlobalVariables.Key.PublicKey;
             notifyLabel.Visibility = Visibility.Hidden;
+            SignatureButton.Visibility = Visibility.Visible;
+            CreateButton.Visibility = Visibility.Collapsed;
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -64,6 +66,38 @@ namespace BasicBlockChain.Pages
                 }
             }
 
+        }
+
+        private void CheckDigitalSignature_Click(object sender, RoutedEventArgs e)
+        {
+            int amount = 0;
+            string fromAddress = FromAddressTextBox.Text;
+            string toAddress = ToAddressTextBox.Text;
+            bool parseSuccess = int.TryParse(AmoutTextBox.Text, out amount);
+            if (parseSuccess && !string.IsNullOrEmpty(fromAddress) && !string.IsNullOrEmpty(toAddress))
+            {
+                var trans = new Transaction(fromAddress, toAddress, amount);
+
+                trans.SignTransaction(GlobalVariables.Key);
+                bool isSignatureValid = trans.isValid();
+
+                if (isSignatureValid)
+                {
+                    notifyLabel.Content = "Digital signature is vaild !";
+                    notifyLabel.Visibility = Visibility.Visible;
+                    notifyLabel.Foreground = new SolidColorBrush(Colors.Blue);
+                    SignatureButton.Visibility = Visibility.Collapsed;
+                    CreateButton.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    notifyLabel.Content = "Digital signature is invaild !";
+                    notifyLabel.Visibility = Visibility.Visible;
+                    notifyLabel.Foreground = new SolidColorBrush(Colors.Red);
+                    SignatureButton.Visibility = Visibility.Visible;
+                    CreateButton.Visibility = Visibility.Collapsed;
+                }
+            }
         }
     }
 }

@@ -10,8 +10,8 @@ namespace BasicBlockChain.Entities
     {
         public IList<Block> Chain { set; get; }
         public IList<Transaction> PendingTransactions = new List<Transaction>();
-        public int Difficulty { set; get; } = 2;
-        public int Reward = 200; //1 cryptocurrency
+        public int Difficulty { set; get; } = GlobalVariables.Difficulty;
+        public int Reward = GlobalVariables.Reward; //1 cryptocurrency
 
         public Blockchain()
         {
@@ -42,10 +42,11 @@ namespace BasicBlockChain.Entities
 
         public void AddBlock(Block block)
         {
+            //Difficulty = GlobalVariables.Difficulty;
             Block latestBlock = GetLatestBlock();
             block.Index = latestBlock.Index + 1;
             block.PreviousHash = latestBlock.Hash;
-            block.Mine(Difficulty);
+            block.Mine(GlobalVariables.Difficulty);
             Chain.Add(block);
         }
 
@@ -123,7 +124,7 @@ namespace BasicBlockChain.Entities
             AddBlock(block);
             Console.WriteLine("Block sucessfully mined!");
             // Reward
-            CreateTransaction(new Transaction(null, minerAddress, Reward));
+            CreateTransaction(new Transaction(null, minerAddress, GlobalVariables.Reward));
 
             var storeTransactions = (List<Transaction>)PendingTransactions;
             PendingTransactions = new List<Transaction>();

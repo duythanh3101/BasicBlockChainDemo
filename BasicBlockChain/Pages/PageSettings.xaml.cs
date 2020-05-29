@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,6 +24,47 @@ namespace BasicBlockChain.Pages
         public PageSettings()
         {
             InitializeComponent();
+        }
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void NumberDifficultValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-3]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string difficulty = string.Empty;
+            string reward = string.Empty;
+
+            if (DifficultTextBox.Text != null)
+            {
+                difficulty = DifficultTextBox.Text.ToString();
+            }
+
+            if (RewardTextBox.Text != null)
+            {
+                reward = RewardTextBox.Text.ToString();
+            }
+
+            if (!string.IsNullOrEmpty(difficulty) && !string.IsNullOrEmpty(reward))
+            {
+                GlobalVariables.Difficulty = int.Parse(difficulty);
+                GlobalVariables.Reward = int.Parse(reward);
+
+                notifyLabel.Content = "Save successfully !!!";
+            }
+            else
+            {
+                notifyLabel.Content = "Save failed !!!";
+            }
+
         }
     }
 }

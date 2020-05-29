@@ -21,7 +21,7 @@ namespace BasicBlockChain.Entities
 
         public Block(DateTime timeStamp, string previousHash, IList<Transaction> transactions)
         {
-            Index = 0;
+            Index = 1;
             TimeStamp = timeStamp;
             PreviousHash = previousHash;
             Transactions = transactions;

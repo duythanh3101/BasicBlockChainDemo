@@ -14,5 +14,9 @@ namespace BasicBlockChain
         public static MyKey Key = new MyKey();
 
         public static bool isLogined = false;
+
+        public static int Difficulty = 2;
+        
+        public static int Reward = 200;
     }
 }

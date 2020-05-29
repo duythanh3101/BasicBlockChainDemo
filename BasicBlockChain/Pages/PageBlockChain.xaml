@@ -24,7 +24,7 @@
         <StackPanel Grid.Row="1">
             <StackPanel Orientation="Horizontal">
                 <Label Content="Transactions inside block" FontSize="30" FontWeight="Bold"/>
-                <Label x:Name="numberLabel" Content="0" FontSize="30" FontWeight="Bold"/>
+                <Label x:Name="numberLabel" Content="1" FontSize="30" FontWeight="Bold"/>
             </StackPanel>
             <Label Content="This block has no transactions" x:Name="NotifyLabel"
                    Margin="5 10 0 0"
